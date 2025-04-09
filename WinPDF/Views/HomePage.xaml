@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="WinPDF.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d" >
+
+    <ScrollView x:Name="HomeScrollView" 
+                Background="{ThemeResource LayerOnMicaBaseAltFillColorTransparentBrush}">
+
+        <StackPanel x:Name="HomeNewActionsStackPanel" 
+                    
+                    Background="{ThemeResource LayerOnMicaBaseAltFillColorTransparentBrush}"
+                    AllowDrop="True" 
+                    Drop="HomeNewActionsStackPanel_Drop"
+                    DragOver="HomeNewActionsStackPanel_DragOver"
+                    >
+                   
+
+
+            <StackPanel x:Name="HomeNewActionsSubStackPanel" 
+                        Background="{ThemeResource LayerOnMicaBaseAltFillColorDefault}" 
+                        CornerRadius="15" 
+                        Padding="10" 
+                        Margin="50" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Orientation="Vertical" 
+                        Spacing="2">
+
+                <StackPanel x:Name="HomeNewActionsButtonsStackPanel" 
+                            Padding="50" 
+                            Margin="50" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Orientation="Horizontal" 
+                            Spacing="30">
+
+                    <Button x:Name="HomeOpenFileButton" 
+                            IsEnabled="{Binding IsButtonActive}"
+                            Style="{StaticResource AccentButtonStyle}" 
+                            Width="150" 
+                            Height="150" 
+                            HorizontalAlignment="Center" >
+                        <Interactivity:Interaction.Behaviors >
+                            <Interactivity:EventTriggerBehavior EventName="Click" >
+                            <Interactivity:InvokeCommandAction
+                            Command="{Binding OpenFileCommand}"/>
+                        </Interactivity:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+
+                        <StackPanel >
+                            <SymbolIcon Symbol="OpenFile" />
+                            <TextBlock Text="AÇ" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="HomeCreateWAIButton" 
+                            Style="{StaticResource AccentButtonStyle}" 
+                            Width="150" 
+                            Height="150" 
+                            HorizontalAlignment="Center" >
+                        <StackPanel >
+                            <SymbolIcon Symbol="Help" />
+                            <TextBlock Text="YAPAY ZEKA" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <TextBlock x:Name="SelectedFilesTextBlock" 
+                           FontSize="10" Text="" 
+                           HorizontalAlignment="Left" />
+                <TextBlock x:Name="HomeNewActionsTextBlock" 
+                           FontSize="25" 
+                           Text="Bir PDF Dosyası Da Sürükleyebilirsiniz" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" />
+            </StackPanel>
+            
+        </StackPanel>
+        
+    </ScrollView>
+    
+</Page>

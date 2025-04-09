@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinPDF (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinPDF (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
